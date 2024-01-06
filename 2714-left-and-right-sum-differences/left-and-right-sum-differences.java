@@ -15,6 +15,7 @@ class Solution {
             leftsum[i]=prefix[i]-nums[i];
             rightsum[i]=suffix[n-i-1]-nums[i];
         }
+        //final answer= nums[i]=|leftsum[i]-rightsum[i]|
         for(i=0;i<n;i++){
             nums[i]=Math.abs(leftsum[i]-rightsum[i]);
         }
