@@ -10,6 +10,8 @@ class Solution {
             else
                 map.put(k,1);//insert and set freq=1
         }
+        /*iterate over the array and check for 
+        each distinct element frequency in map*/
         for(i=0;i<n-1;i++){
             for(j=i+1;j<n;j++){
                 if(arr[i]==arr[j]) continue;
