@@ -14,14 +14,7 @@ class Solution {
                 map.put(str[i],1);
             }
         }
-        // for(char a : s){
-        //     if(map.containsKey(a)){//update freq if element present
-        //         map.put(a,map.get(a)+1);
-        //     }
-        //     else{
-        //         map.put(a,1);
-        //     }
-        // }
+        
 
         for(int i=0;i<str.length;i++){
             if(map.containsKey(str[i])){
@@ -31,5 +24,13 @@ class Solution {
             }
         }
         return -1;
+        // for(char a : s){
+        //     if(map.containsKey(a)){//update freq if element present
+        //         map.put(a,map.get(a)+1);
+        //     }
+        //     else{
+        //         map.put(a,1);
+        //     }
+        // }
     }
 }
