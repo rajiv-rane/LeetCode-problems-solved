@@ -13,13 +13,6 @@ public class Solution {
     public boolean hasCycle(ListNode head) {
         //using hashset
         HashSet<ListNode>set=new HashSet<>();
-        // if(head==null)
-        //     return false;
-        // if(head.next==head){
-        //     return true;//2 nodes cycle
-        // }
-        // if(head.next==null)
-        //     return false;
 
         ListNode temp=head;
         while(temp!=null){
@@ -29,5 +22,6 @@ public class Solution {
             temp=temp.next;
         }
         return false;
+        
     }
 }
