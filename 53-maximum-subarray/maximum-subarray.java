@@ -5,19 +5,21 @@ class Solution {
         /*initialize current_max=global_max=nums[0]
         since nums[0] is the max subarray sum ending with element nums[0]*/
         /*we use another variable global_max =nums[0]*/
-        int curr_max_sum,final_max_sum;
-        curr_max_sum = final_max_sum = nums[0];
-
-        for(int i=1;i<nums.length;i++){
-            curr_max_sum=Math.max(nums[i],curr_max_sum+nums[i]);
-
-            // if the recently updated value of currentMaxSum > final_max_sum then update final_maxSum=currentSum
-            if(curr_max_sum>final_max_sum){
-                //update
-                final_max_sum=curr_max_sum;
+        int maxSum=Integer.MIN_VALUE;
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            /*carry forward the sum if the current sum is positive*/
+            sum=sum+nums[i];
+            maxSum=Math.max(sum,maxSum);
+            /*if the current sum is negative then no need to include it 
+            while carrying it forward*/
+            if(sum<0){
+                sum=0;
+                /*if sum is -ve => rest sum to 0 
+                since we don't need -ve resultant to be added to sum*/ 
             }
         }
-        return final_max_sum;
+        return maxSum;
     }
 }
 
