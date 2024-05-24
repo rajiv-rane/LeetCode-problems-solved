@@ -17,6 +17,7 @@ class Solution {
     }
     // sample();
     public int climbStairs(int n) {
+         //map=new HashMap<>();
 
         map.put(2,2);
         map.put(1,1);
