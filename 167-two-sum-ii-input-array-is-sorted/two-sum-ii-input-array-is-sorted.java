@@ -6,18 +6,18 @@ class Solution {
         ans[1]=-1;
         int i,j;
         int n=numbers.length;
-        for(i=1;i<=n;i++){
-            int start=i-1;
-            int end=n-1;
-            while(start<end){
-                if(numbers[start]+numbers[end]==target){
-                    System.out.println(numbers[start]+numbers[end]);
-                    ans[0]=start+1;
-                    ans[1]=end+1;
-                    return ans;
-                }
-                end--;
+        int s=0;int e=n-1;
+        while(s<=e){
+            if(numbers[s]+numbers[e]==target){
+                ans[0]=s+1;
+                ans[1]=e+1;
+                return ans;
             }
+            else if(numbers[s]+numbers[e]<target){
+                s++;
+            }
+            else
+                e--;
         }
         return ans;
     }
