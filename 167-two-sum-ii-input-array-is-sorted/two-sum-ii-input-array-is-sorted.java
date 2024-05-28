@@ -1,6 +1,7 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
         // List<Integer>list=new ArrayList<>();
+        // two pointer
         int ans[]=new int[2];
         ans[0]=-1;
         ans[1]=-1;
