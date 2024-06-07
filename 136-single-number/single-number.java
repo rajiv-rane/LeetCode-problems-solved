@@ -1,16 +1,12 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer,Integer>map=new HashMap<>();
-        for(int i:nums){
-            if(map.containsKey(i))
-                map.put(i,map.get(i)+1);
-            else
-                map.put(i,1);
+        Arrays.sort(nums);
+        int ans=0;
+        for(int i=0;i<nums.length;i++){
+            ans=ans^nums[i];
         }
-        for(int i:nums){
-            if(map.get(i)==1)
-                return i;
-        }
-        return nums[0];
+        return ans;
     }
 }
+
+/**if odd number of ones are in xor */
