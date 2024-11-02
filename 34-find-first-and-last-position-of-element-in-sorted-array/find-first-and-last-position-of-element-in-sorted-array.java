@@ -1,32 +1,45 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        // 2 pointer
-        int left=-1,right=-1;
+        // first occurrence
         int s=0;int e=nums.length-1;
+        int first=-1;int last=-1;
         while(s<=e){
-            if(nums[s]==target && nums[e]==target){
-                left=s;
-                right=e;
-                break;
+            int m=s+(e-s)/2;
+            if(nums[m]==target){
+                //it's a psbl answer
+                first=m;
+                //go to left side for better ans
+                e=m-1;
             }
-            else if(nums[s]<target){
-                s++;
+            else if(nums[m]>target){
+                //go left
+                e=m-1;
             }
-            else {
-                e--;
+            else{
+                //go right
+                s=m+1;
             }
         }
-        int ans[]={left,right};
+
+        s=0;e=nums.length-1;
+        while(s<=e){
+            int m=s+(e-s)/2;
+            if(nums[m]==target){
+                //update ans and check on right for better ans
+                last=m;
+                s=m+1;
+            }
+            else if(nums[m]>target){
+                // go to left
+                e=m-1;
+            }
+            else{//nums[m]<target
+                //check right
+                s=m+1;
+            }
+        }
+        int ans[]=new int[2];
+        ans[0]=first;ans[1]=last;
         return ans;
-        // int ans[]={-1,-1};
-        // int i=0;
-        // int s=0; int e=nums.length-1;
-        // while(s<e){
-        //     int mid=(s+e)/2;
-        //     if(nums[mid]==target){
-                
-                
-        //     }
-        // }
     }
 }
