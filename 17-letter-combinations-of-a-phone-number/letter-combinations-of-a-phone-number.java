@@ -1,10 +1,8 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
-        LinkedList<String> ans = new LinkedList<String>();
-        if (digits.length() == 0)
-            return ans;
+        LinkedList<String>ans=new LinkedList();
+        if(digits.length()==0) return ans;
         ans.add("");
-
         String[] mapping = new String[] { "0", "1", "abc", "def", "ghi", "jkl", 
         "mno", "pqrs", "tuv", "wxyz" };
 
