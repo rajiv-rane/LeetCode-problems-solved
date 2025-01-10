@@ -1,16 +1,19 @@
 class Solution {
     public boolean areOccurrencesEqual(String s) {
-        HashMap<Character,Integer> map = new HashMap<>();
-        for(int i=0; i<s.length(); i++) {
-            if(!map.containsKey(s.charAt(i)))
-                map.put(s.charAt(i),1);
-            else if(map.containsKey(s.charAt(i)))
-                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+        if(s.length()==1) return true;
+
+        HashMap<Character,Integer>map=new HashMap<>();
+        for(char c:s.toCharArray()){
+
+                map.put(c,map.getOrDefault(c,0)+1);
+            
         }
-        for(int i=0; i<s.length()-1; i++) {
-            int count = map.get(s.charAt(i));
-            if(count!=map.get(s.charAt(i+1))) return false;
+        // char arr[]=s.toCharArray();
+        int freq=map.get(s.charAt(0));
+        for(char c:map.keySet()){
+            if(map.get(c)!=freq)
+                return false;
         }
-    return true;
+        return true;
     }
 }
