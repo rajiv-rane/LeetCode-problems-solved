@@ -1,19 +1,21 @@
 class Solution {
     public int countPrimes(int n) {
-        if(n<=2)
+        if(n<2){
             return 0;
+        }
 
-        boolean primes[]=new boolean[n];
-        primes[0]=false;
-        primes[1]=false;
+        boolean seive[]=new boolean[n];
+        seive[0]=false;
+        seive[1]=false;
 
-        Arrays.fill(primes,true);
+        Arrays.fill(seive,true);
         int count=0;
         for(int i=2;i<n;i++){
-            if(primes[i]==true){
+            if(seive[i]==true){
                 count++;
+                // traverse over multiples;
                 for(int j=i*2;j<n;j=j+i){
-                    primes[j]=false;
+                    seive[j]=false;
                 }
             }
         }
