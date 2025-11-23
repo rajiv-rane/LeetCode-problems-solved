@@ -1,16 +1,16 @@
 class Solution {
     public boolean isValid(String s) {
-        while(true){
-            if(s.contains("()"))
-                s=s.replace("()","");
-            else if(s.contains("{}"))
-                s=s.replace("{}","");
-            else if(s.contains("[]"))
-                s=s.replace("[]","");
-            else{
-                return s.isEmpty();
-            }
+
+        // Keep looping while the string still contains any valid pair
+        while (s.contains("()") || s.contains("{}") || s.contains("[]")) {
+
+            // Remove all valid bracket pairs
+            s = s.replace("()", "");
+            s = s.replace("{}", "");
+            s = s.replace("[]", "");
         }
-        
+
+        // If there’s nothing left, it's valid
+        return s.isEmpty();
     }
 }
