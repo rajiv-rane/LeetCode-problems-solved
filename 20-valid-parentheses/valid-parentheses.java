@@ -11,6 +11,6 @@ class Solution {
         }
 
         // If there’s nothing left, it's valid
-        return s.isEmpty();
+        return s.length()==0;
     }
 }
