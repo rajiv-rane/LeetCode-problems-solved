@@ -1,6 +1,6 @@
 class Solution {
     public int hIndex(int[] citations) {
-        // we sort the array and then check from the end
+        // sort the array and then check from the end
         // if the count (citations[i] value)==index from end then it's a H index.
         // if the condition of the loop fails then the i-1 element is the H index
 
