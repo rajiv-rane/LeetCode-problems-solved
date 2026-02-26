@@ -1,23 +1,16 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        // left=BUY
-        // right=SELL 
-        // Price on LEFT should be lesser than RIGHT
-
-        int l=0;
-        int r=1;
         int n=prices.length;
-        int Maxprofit=0;
-        while(r<n){
-            if(prices[l]<prices[r]){
-                int profit=(prices[r]-prices[l]);
-                Maxprofit=Math.max(profit,Maxprofit);
+        int buy=prices[0];
+        int p=0;
+        for(int i=1;i<n;i++){
+            if(prices[i]<buy){
+                buy=prices[i];
             }
-            else{
-                l=r; //reset to lowest price found on right
+            else if(prices[i]-buy>p){
+                p=prices[i]-buy;
             }
-            r++;
         }
-        return Maxprofit;
+        return p;
     }
 }
